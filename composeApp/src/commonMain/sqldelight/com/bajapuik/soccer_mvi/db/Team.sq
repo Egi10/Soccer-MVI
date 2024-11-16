@@ -1,0 +1,106 @@
+CREATE TABLE team (
+    id                  TEXT PRIMARY KEY,
+    name                TEXT NOT NULL,
+    alternateName       TEXT,
+    formedYear          INTEGER NOT NULL,
+    league              TEXT NOT NULL,
+    leagueId            TEXT NOT NULL,
+    stadium             TEXT NOT NULL,
+    stadiumCapacity     INTEGER,
+    location            TEXT NOT NULL,
+    description         TEXT,
+    badgeUrl            TEXT,
+    country             TEXT NOT NULL,
+    gender              TEXT NOT NULL
+);
+
+insertTeam:
+INSERT INTO team (
+    id,
+    name,
+    alternateName,
+    formedYear,
+    league,
+    leagueId,
+    stadium,
+    stadiumCapacity,
+    location,
+    description,
+    badgeUrl,
+    country,
+    gender
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+updateTeam:
+UPDATE team
+SET
+    name = ?,
+    alternateName = ?,
+    formedYear = ?,
+    league = ?,
+    leagueId = ?,
+    stadium = ?,
+    stadiumCapacity = ?,
+    location = ?,
+    description = ?,
+    badgeUrl = ?,
+    country = ?,
+    gender = ?
+WHERE id = ?;
+
+selectAllTeams:
+SELECT
+    id,
+    name,
+    alternateName,
+    formedYear,
+    league,
+    leagueId,
+    stadium,
+    stadiumCapacity,
+    location,
+    description,
+    badgeUrl,
+    country,
+    gender
+FROM team;
+
+selectTeamById:
+SELECT
+    id,
+    name,
+    alternateName,
+    formedYear,
+    league,
+    leagueId,
+    stadium,
+    stadiumCapacity,
+    location,
+    description,
+    badgeUrl,
+    country,
+    gender
+FROM team
+WHERE id = ?;
+
+selectTeamByCountry:
+SELECT
+    id,
+    name,
+    alternateName,
+    formedYear,
+    league,
+    leagueId,
+    stadium,
+    stadiumCapacity,
+    location,
+    description,
+    badgeUrl,
+    country,
+    gender
+FROM team
+WHERE country = ?;
+
+deleteTeam:
+DELETE FROM team
+WHERE id = ?;

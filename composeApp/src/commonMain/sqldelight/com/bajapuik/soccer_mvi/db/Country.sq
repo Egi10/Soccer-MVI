@@ -1,0 +1,26 @@
+CREATE TABLE country (
+    name TEXT PRIMARY KEY,
+    flagUrl TEXT NOT NULL
+);
+
+insertCountry:
+INSERT INTO country (name, flagUrl)
+VALUES (?, ?);
+
+updateCountry:
+UPDATE country
+SET
+    flagUrl = ?
+WHERE
+    name = ?;
+
+getAllCountries:
+SELECT name,
+flagUrl
+FROM country;
+
+getCountryByName:
+SELECT name,
+flagUrl
+FROM country
+WHERE name = :name;
